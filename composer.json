@@ -1,0 +1,44 @@
+{
+	"name": "wp-media/package-template",
+	"description": "Repository template for our packages",
+	"homepage": "https://github.com/wp-media/package-template",
+	"license": "GPL-2.0+",
+	"authors": [
+		{
+			"name": "WP Media",
+			"email": "contact@wp-media.me",
+			"homepage": "https://wp-media.me"
+		}
+	],
+	"type": "library",
+	"config": {
+		"sort-packages": true
+	},
+	"support": {
+		"issues": "https://github.com/wp-media/package-template/issues",
+		"source": "https://github.com/wp-media/package-template"
+	},
+	"require-dev": {
+		"php": "^5.6 || ^7",
+		"brain/monkey": "^2.0",
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+		"phpcompatibility/phpcompatibility-wp": "^2.0",
+		"phpunit/phpunit": "^5.7 || ^7",
+		"wp-coding-standards/wpcs": "^2",
+		"wp-media/phpunit": "dev-master"
+	},
+	"autoload": {},
+	"autoload-dev": {},
+	"scripts": {
+		"test-unit": "\"vendor/bin/wpmedia-phpunit\" unit path=Tests/Unit",
+		"test-integration": "\"vendor/bin/wpmedia-phpunit\" integration path=Tests/Integration/",
+		"run-tests": [
+			"@test-unit",
+			"@test-integration"
+		],
+		"install-codestandards": "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run",
+		"phpcs": "phpcs --basepath=.",
+		"phpcs-changed": "./bin/phpcs-changed.sh",
+		"phpcs:fix": "phpcbf"
+	}
+}
