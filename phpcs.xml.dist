@@ -25,9 +25,7 @@
 	<config name="minimum_supported_wp_version" value="4.9"/>
 
 	<rule ref="WordPress">
-        <exclude name="Squiz.Commenting.FileComment.Missing"/>
-        <exclude name="Squiz.Commenting.FileComment.MissingPackageTag"/>
-		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
+        <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
 	</rule>
     <rule ref="WordPress.WP.I18n">
         <properties>
@@ -44,7 +42,11 @@
             <property name="strict_class_file_names" value="false" />
         </properties>
     </rule>
-	<rule ref="WordPress-Docs"/>
+	<rule ref="WordPress-Docs">
+		<exclude name="Squiz.Commenting.FileComment.Missing"/>
+		<exclude name="Squiz.Commenting.FileComment.MissingPackageTag"/>
+		<exclude name="Squiz.Commenting.ClassComment.Missing"/>
+	</rule>
 
 	<!-- Rules: WordPress Coding Standards - see
 		https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards
