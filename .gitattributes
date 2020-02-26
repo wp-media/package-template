@@ -8,6 +8,6 @@ vendor export-ignore
 .github export-ignore
 .travis.yml export-ignore
 composer.lock export-ignore
-LICENSE.md export-ignore
-phpcs.xml export-ignore
+LICENSE export-ignore
+phpcs.xml.dist export-ignore
 README.md export-ignore
