@@ -1,6 +1,7 @@
 <?php
 /**
- * 
+ * Plugin Template
+ *
  * @package     TO FILL
  * @author      Mathieu Lamiot
  * @copyright   TO FILL

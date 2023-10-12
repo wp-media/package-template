@@ -9,6 +9,7 @@ When creating a new repository for a package or a plugin, select this repository
 - Run `composer install`
 - Run `bash bin/install-wp-tests.sh wordpress_test mysql_user mysql_password localhost latest`
 - Run `composer run-tests`
+- Run `composer phpcs`
 - You can install the plugin on your website.
 
 # Content

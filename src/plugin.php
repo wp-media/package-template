@@ -1,5 +1,6 @@
 <?php
 /**
+ * Plugin main class
  *
  * @package     TO FILL
  * @since       TO FILL
