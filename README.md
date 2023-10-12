@@ -3,6 +3,14 @@ Repository template for our packages
 # Usage
 When creating a new repository for a package or a plugin, select this repository as the template. It will initialize the new repository with all the structure & files contained in the template.
 
+# Get started
+- Have a mysql DB ready and a user.
+- Have `svn` installed.
+- Run `composer install`
+- Run `bash bin/install-wp-tests.sh wordpress_test mysql_user mysql_password localhost latest`
+- Run `composer run-tests`
+- You can install the plugin on your website.
+
 # Content
 * `bin/install-wp-tests.sh`: installer for WordPress tests suite
 * `.editorconfig`: config file for your IDE to follow our coding standards
