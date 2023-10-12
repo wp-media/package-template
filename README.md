@@ -1,4 +1,3 @@
-# Package Template
 Repository template for our packages
 
 # Usage

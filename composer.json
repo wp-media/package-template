@@ -1,37 +1,46 @@
 {
-	"name": "wp-media/package-template",
-	"description": "Repository template for our packages",
-	"homepage": "https://github.com/wp-media/package-template",
-	"license": "GPL-2.0+",
-	"authors": [
-		{
-			"name": "WP Media",
-			"email": "contact@wp-media.me",
-			"homepage": "https://wp-media.me"
-		}
-	],
-	"type": "library",
-	"config": {
-		"sort-packages": true
-	},
-	"support": {
-		"issues": "https://github.com/wp-media/package-template/issues",
-		"source": "https://github.com/wp-media/package-template"
-	},
-	"require-dev": {
-		"php": "^5.6 || ^7",
+    "name"          : "mathieulamiot/wp-crawler-wpplugin",
+    "description"   : "Website crawler as a WordPress plugin. Answer to the WP-Media developer test case.",
+    "type"          : "project",
+    "keywords"      : ["wordpress", "wp", "plugin"],
+    "homepage"      : "https://github.com/AgentAGadge",
+    "license"       : "GPL-2.0+",
+    "authors"       : [
+        {
+            "name": "Mathieu Lamiot",
+            "email": "mathieu.lamiot@free.fr"
+        }
+    ],
+    "require"       : {
+        "php" : ">=7.3"
+    },
+    "require-dev":{
+        "raveren/kint": "~1.0",
+        "filp/whoops": "~2.0",
+		"php": "^7.3 || ^8",
 		"brain/monkey": "^2.0",
-		"dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+		"dealerdirect/phpcodesniffer-composer-installer": "^1",
 		"phpcompatibility/phpcompatibility-wp": "^2.0",
-		"phpunit/phpunit": "^5.7 || ^7",
-		"wp-coding-standards/wpcs": "^2",
-		"wp-media/phpunit": "dev-master"
-	},
-	"autoload": {},
-	"autoload-dev": {},
+		"phpunit/phpunit": "^5.7 || ^7 || ^8",
+		"wp-coding-standards/wpcs": "dev-develop",
+		"wp-media/phpunit": "^3"
+    },
+    "autoload": {},
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "config":{
+		"sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "minimum-stability": "dev",
 	"scripts": {
-		"test-unit": "\"vendor/bin/wpmedia-phpunit\" unit path=Tests/Unit",
-		"test-integration": "\"vendor/bin/wpmedia-phpunit\" integration path=Tests/Integration/",
+		"test-unit": "vendor/bin/phpunit --testsuite unit --colors=always --configuration \"Tests/Unit/phpunit.xml.dist\"",
+		"test-integration": "vendor/bin/phpunit --testsuite integration --colors=always --configuration \"Tests/Integration/phpunit.xml.dist\"",
 		"run-tests": [
 			"@test-unit",
 			"@test-integration"
