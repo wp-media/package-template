@@ -1,14 +1,14 @@
 {
-    "name"          : "mathieulamiot/wp-crawler-wpplugin",
-    "description"   : "Website crawler as a WordPress plugin. Answer to the WP-Media developer test case.",
+    "name"          : "wp-media/package-template",
+    "description"   : "WP Plugin template for WP Media.",
     "type"          : "project",
     "keywords"      : ["wordpress", "wp", "plugin"],
-    "homepage"      : "https://github.com/AgentAGadge",
+    "homepage"      : "https://github.com/wp-media/package-template",
     "license"       : "GPL-2.0+",
     "authors"       : [
         {
             "name": "Mathieu Lamiot",
-            "email": "mathieu.lamiot@free.fr"
+            "email": "mathieu@wp-media.me"
         }
     ],
     "require"       : {
