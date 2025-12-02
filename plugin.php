@@ -1,42 +1,39 @@
 <?php
 /**
- * Plugin Template
- *
- * @package     TO FILL
- * @author      Mathieu Lamiot
- * @copyright   TO FILL
- * @license     GPL-2.0-or-later
- *
- * @wordpress-plugin
- * Plugin Name: TO FILL
- * Version:     TO FILL
- * Description: TO FILL
- * Author:      Mathieu Lamiot
+ * Plugin Name: Package Template
+ * Plugin URI:  TO FILL
+ * Description: A WordPress plugin template to kickstart your development.
+ * Version:     1.0.0
+ * Requires at least: 6.6
+ * Requires PHP: 7.4
+ * Author:      WP Media
+ * Author URI:  https://wp-media.me
+ * License:     GPL-2.0-or-later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: package-template
+ * Domain Path: /languages
  */
+namespace WPMedia\PackageTemplate;
 
-namespace ROCKET_WP_CRAWLER;
-
-define( 'ROCKET_CRWL_PLUGIN_FILENAME', __FILE__ ); // Filename of the plugin, including the file.
-
-if ( ! defined( 'ABSPATH' ) ) { // If WordPress is not loaded.
-	exit( 'WordPress not loaded. Can not load the plugin' );
-}
+defined( 'ABSPATH' ) || exit;
 
 // Load the dependencies installed through composer.
-require_once __DIR__ . '/src/plugin.php';
-require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/src/support/exceptions.php';
-
-// Plugin initialization.
-/**
- * Creates the plugin object on plugins_loaded hook
- *
- * @return void
- */
-function wpc_crawler_plugin_init() {
-	$wpc_crawler_plugin = new Rocket_Wpc_Plugin_Class();
+if ( ! class_exists( Config::class ) && is_file( __DIR__ . '/vendor/autoload.php' ) ) {
+	require_once __DIR__ . '/vendor/autoload.php';
 }
-add_action( 'plugins_loaded', __NAMESPACE__ . '\wpc_crawler_plugin_init' );
 
-register_activation_hook( __FILE__, __NAMESPACE__ . '\Rocket_Wpc_Plugin_Class::wpc_activate' );
-register_uninstall_hook( __FILE__, __NAMESPACE__ . '\Rocket_Wpc_Plugin_Class::wpc_uninstall' );
+Config::init(
+	[
+		'version'         => 'TO FILL',
+		'plugin_file'     => __FILE__,
+		'plugin_basename' => plugin_basename( __FILE__ ),
+		'plugin_slug'     => 'package-template',
+		'prefix'          => 'wpmpt_',
+	]
+);
+
+$wpmedia_plugin = new Plugin();
+
+add_action( 'plugins_loaded', [ $wpmedia_plugin, 'load' ] );
+register_activation_hook( __FILE__, [ $wpmedia_plugin, 'activate' ] );
+register_deactivation_hook( __FILE__, [ $wpmedia_plugin, 'deactivate' ] );
