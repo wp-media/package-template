@@ -1,35 +1,15 @@
-name: PHP CodeSniffer lint
+name: PHP CodeSniffer
 
 on:
   pull_request:
-    branches:
-      - master
-      - develop
+  # Allow manually triggering the workflow.
+  workflow_dispatch:
+
+# Cancel all previous workflow runs for the same branch that have not yet completed.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  run:
-    runs-on: ${{ matrix.operating-system }}
-
-    strategy:
-      fail-fast: false
-      matrix:
-        operating-system: [ubuntu-latest]
-        php-versions: ['7.4']
-
-    name: Lint with PHPCS. PHP ${{ matrix.php-versions }} on ${{ matrix.operating-system }}.
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: ${{ matrix.php-versions }}
-        coverage: none  # XDebug can be enabled here 'coverage: xdebug'
-        tools: composer:v2
-
-    - name: Install dependencies
-      run: composer install --prefer-dist --no-interaction --no-scripts
-
-    - name: Lint with phpcs
-      run: composer phpcs
-
+  phpcs:
+    uses: wp-media/workflows/.github/workflows/phpcs.yml@main
