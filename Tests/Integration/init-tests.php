@@ -1,6 +1,6 @@
 <?php
 /**
- * Initializes the wp-media/phpunit handler, which then calls the options integration test suite.
+ * Initializes the wp-media/phpunit handler, which then calls the integration test suite.
  */
 
 define( 'WPMEDIA_PHPUNIT_ROOT_DIR', dirname( dirname( __DIR__ ) ) . DIRECTORY_SEPARATOR );

@@ -32,7 +32,7 @@ class Plugin {
 	 *
 	 * @return void
 	 */
-	public static function activate(): void {}
+	public function activate(): void {}
 
 	/**
 	 * Handles plugin deactivation

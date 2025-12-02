@@ -24,7 +24,7 @@ if ( ! class_exists( Config::class ) && is_file( __DIR__ . '/vendor/autoload.php
 
 Config::init(
 	[
-		'version'         => 'TO FILL',
+		'version'         => '1.0.0',
 		'plugin_file'     => __FILE__,
 		'plugin_basename' => plugin_basename( __FILE__ ),
 		'plugin_slug'     => 'package-template',

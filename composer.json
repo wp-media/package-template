@@ -1,6 +1,6 @@
 {
     "name"          : "wp-media/package-template",
-    "description"   : "WP Plugin template for WP Media.",
+    "description"   : "WordPress plugin template for WP Media.",
     "type"          : "wordpress-plugin",
     "keywords"      : ["wordpress", "wp", "plugin"],
     "homepage"      : "https://github.com/wp-media/package-template",

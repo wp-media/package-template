@@ -160,7 +160,7 @@ class MyTest extends TestCase {
 ### Naming Conventions
 - **Classes**: PascalCase filenames matching class name (`Plugin.php`, `Subscriber.php`)
 - **Global Functions**: `wpmedia_` prefix
-- **Database Options**: Use prefix from `Config::get('prefix')` (default: `pt_`)
+- **Database Options**: Use prefix from `Config::get('prefix')` (default: `wpmpt_`)
 - **Hook Names**: `wpmedia_package_template_*` pattern
 
 ### Type Safety
