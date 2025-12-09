@@ -1,0 +1,51 @@
+name: PHPUnit
+
+on:
+  pull_request:
+  # Allow manually triggering the workflow.
+  workflow_dispatch:
+
+# Cancel all previous workflow runs for the same branch that have not yet completed.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  run:
+    name: PHPUnit
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+          php-version: '8.2'
+          ini-values: 'memory_limit=1G'
+          coverage: none
+          tools: cs2pr
+
+    - name: Install Composer dependencies
+      uses: "ramsey/composer-install@v3"
+      with:
+        # Bust the cache at least once a month - output format: YYYY-MM.
+        custom-cache-suffix: $(date -u "+%Y-%m")
+
+    - name: Install SVN
+      run: sudo apt-get install subversion
+
+    - name: Start mysql service
+      run: sudo /etc/init.d/mysql start
+
+    - name: Install tests
+      run: bash bin/install-wp-tests.sh wordpress_test root root 127.0.0.1:3306 latest
+
+    - name: Mysql8 auth plugin workaround
+      run: sudo mysql -u root -proot -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';"
+
+    - name: Run PHPUnit unit tests
+      run: composer test-unit
+
+    - name: Run PHPUnit integration tests
+      run: composer test-integration
