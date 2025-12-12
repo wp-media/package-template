@@ -42,7 +42,8 @@
     },
 	"suggest": {
 		"berlindb/core": "Provide ORM-like experience and interface to WordPress database tables.",
-		"coenjacobs/mozart": "Wrap your dependencies to avoid conflicts with other plugins.",
+		"brianhenryie/strauss": "Prefix PHP namespaces and classnames to allow multiple versions of libraries to exist without conflict.",
+		"stellarwp/admin-notices": "A handy package for easily displaying admin notices in WordPress with simple to complex visibility conditions.",
 		"woocommerce/action-scheduler": "Provides a robust background job queue for WordPress.",
 		"wp-media/wp-mixpanel": "Easily integrate Mixpanel analytics into your WordPress project."
 	},
